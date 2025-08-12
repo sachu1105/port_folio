@@ -9,17 +9,16 @@ import { ArrowUpRight } from "lucide-react";
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    function handleClickOutside(e) {
-      // If click is outside both dropdown and button, close it
+    function handleClickOutside(e: MouseEvent) { // <-- This is now the DOM MouseEvent
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(e.target) &&
+        !dropdownRef.current.contains(e.target as Node) &&
         buttonRef.current &&
-        !buttonRef.current.contains(e.target)
+        !buttonRef.current.contains(e.target as Node)
       ) {
         setDropdownOpen(false);
       }
@@ -71,12 +70,10 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Center Logo */}
       <div className="text-white text-lg font-bold tracking-wide">
         carbonform
       </div>
 
-      {/* Right Side */}
       <div className="flex items-center gap-4">
         <Link
           href="#"
