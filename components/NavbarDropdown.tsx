@@ -82,10 +82,7 @@ export default function NavbarDropdown() {
 
       {/* Bottom Links */}
       <div className="flex flex-wrap gap-6 mt-6 text-sm text-gray-600 border-t pt-4">
-        <Link href="#">World’s Healthiest</Link>
-        <Link href="#">The Founder Health Coalition</Link>
         <Link href="#">Privacy Policy</Link>
-        <Link href="#">Informed Medical Consent</Link>
         <Link href="#">Terms & Conditions</Link>
       </div>
     </motion.div>

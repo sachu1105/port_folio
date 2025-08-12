@@ -4,45 +4,43 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden ">
-      {/* Video Background */}
-      <video
-        src="https://superpower-website.b-cdn.net/superpower-100-year-potential-video-hero.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover px-4 py-4 rounded-4xl"
-      />
+    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4">
+      {/* Image Wrapper with rounded corners */}
+      <div className="relative w-full h-full rounded-4xl overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/images/pixelsls.jpg"
+          alt="Hero Background"
+          fill
+          className="object-cover"
+        />
 
-      {/* Overlay for text readability */}
+        {/* Blurry Overlay only inside the rounded image */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white min-h-[calc(100vh-80px)] px-4">
-        {/* <h1 className="text-4xl sm:text-6xl font-bold max-w-3xl leading-tight">
-          Every body has <br /> 100 year potential
-        </h1>
-        <p className="mt-4 text-lg">
-          Superpower is your new health intelligence
-        </p>
-        <button className="mt-8 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold shadow-md">
-          Start Testing
-        </button> */}
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white min-h-[calc(100vh-80px)] px-4">
+          
+          {/* Heading (Two Lines) */}
+          <h1 className="text-4xl md:text-8xl font-semibold leading-tight">
+            <span className="block">Impact </span>
+            <span className="block">In Every Pixel</span>
+          </h1>
 
-        {/* Floating info card */}
-        <div className="absolute bottom-8 right-6 bg-black rounded-lg px-6 py-4 flex items-center gap-3 shadow-lg">
-          <Image
-            src="/images/mesrati.jpg" // replace with your actual path
-            alt="Lab Icon"
-            width={30}
-            height={30}
-            className="rounded-md"
-          />
-          <div>
-            <p className="text-sm font-semibold text-white">
-              It starts with 100+ labs
-            </p>
-            <p className="text-xs text-gray-300">Unlock it for $499</p>
+          {/* Skills / Tagline */}
+          <p className="mt-2 text-sm md:text-base text-gray-300">
+            React • Next.js • Node.js • PostgreSQL • MongoDB
+          </p>
+
+          {/* Floating Info Card */}
+          <div className="absolute bottom-8 right-6 bg-black/20 rounded-lg px-6 py-4 flex items-center gap-3 shadow-lg border border-gray-700">
+          
+            <div>
+              <p className="text-sm font-semibold text-white">
+                3+ Years Experience
+              </p>
+              <p className="text-xs text-gray-300">Full-Stack Development</p>
+            </div>
           </div>
         </div>
       </div>
