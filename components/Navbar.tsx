@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import NavbarDropdown from "./NavbarDropdown";
-import { ArrowBigLeftDash, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -83,7 +83,8 @@ export default function Navbar() {
           className="bg-orange-500 text-white text-md font-semibold px-5 py-3 rounded-full 
                       hover:bg-orange-600 transition-all"
         >
-          Let's Connect <ArrowUpRight className="inline ml-2" />
+          <span>Let&apos;s Connect</span>{" "}
+          <ArrowUpRight className="inline ml-2" />
         </Link>
       </div>
     </nav>

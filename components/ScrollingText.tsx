@@ -33,7 +33,7 @@ export default function ScrollingText() {
 
   const text = "Ready to Rise"
 
-  const translateX = (1 - scrollProgress) * (window.innerWidth + 600) - 700
+  const translateX = (1 - scrollProgress) * (window.innerWidth + 600) - 800
   const opacity = Math.min(scrollProgress * 2, 1) // Fade in faster but stay visible longer
 
   return (
