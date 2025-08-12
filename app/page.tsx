@@ -14,7 +14,6 @@ export default function Home() {
       <Myworks />
       <MyServices />
       <ScrollingText />
-      
     </div>
   );
 }

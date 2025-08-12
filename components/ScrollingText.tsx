@@ -51,7 +51,7 @@ export default function ScrollingText() {
           }}
         >
           <h1
-            className="text-8xl md:text-9xl lg:text-[12rem] font-black text-black leading-none tracking-tight"
+            className="text-8xl md:text-9xl lg:text-[12rem] font-bold text-black leading-none tracking-tight"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
             }}

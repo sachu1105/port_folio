@@ -37,9 +37,16 @@ export default function Navbar() {
                  bg-black/10 backdrop-blur-md border border-white/10 px-2 py-2 flex items-center justify-between shadow-lg"
     >
       <div className="flex gap-6 text-sm font-medium text-white relative ml-6">
-        <Link href="/" className={pathname === "/" ? "text-orange-500" : ""}>Home</Link>
-        <Link href="/about" className={pathname === "/about" ? "text-orange-500" : ""}>My story</Link>
-        
+        <Link href="/" className={pathname === "/" ? "text-orange-500" : ""}>
+          Home
+        </Link>
+        <Link
+          href="/about"
+          className={pathname === "/about" ? "text-orange-500" : ""}
+        >
+          My story
+        </Link>
+
         <button
           ref={buttonRef}
           onClick={() => setDropdownOpen((prev) => !prev)}
@@ -48,9 +55,13 @@ export default function Navbar() {
           Skills
         </button>
 
-        <Link href="/projects" className={pathname === "/projects" ? "text-orange-500" : ""}>Projects</Link>
+        <Link
+          href="/projects"
+          className={pathname === "/projects" ? "text-orange-500" : ""}
+        >
+          Projects
+        </Link>
       </div>
-      
 
       <AnimatePresence>
         {dropdownOpen && (
