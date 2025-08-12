@@ -27,7 +27,8 @@ export default function NavbarDropdown() {
 
           <h3 className="font-semibold text-lg mb-1">What's Included</h3>
           <p className="text-gray-600 text-sm">
-            Your membership starts with 100+ labs. Here's everything we test.
+            Your membership starts with 100+ labs. Here&apos;s everything we
+            test.
           </p>
         </div>
 
