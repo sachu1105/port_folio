@@ -25,7 +25,7 @@ export default function NavbarDropdown() {
             className="block w-full h-[150px] object-cover rounded-xl mb-3"
           />
 
-          <h3 className="font-semibold text-lg mb-1">What's Included</h3>
+          <h3 className="font-semibold text-lg mb-1">What&apos;s Included</h3>
           <p className="text-gray-600 text-sm">
             Your membership starts with 100+ labs. Here&apos;s everything we
             test.
