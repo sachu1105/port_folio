@@ -1,45 +1,60 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
 export default function ScrollingText() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
-      if (!containerRef.current) return
+      if (!containerRef.current) return;
 
-      const rect = containerRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-      const elementTop = rect.top
-      const elementHeight = rect.height
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const elementTop = rect.top;
+      const elementHeight = rect.height;
 
-      const startOffset = windowHeight * 1.5
-      const endOffset = -elementHeight * 2
-      const totalDistance = startOffset - endOffset
+      const startOffset = windowHeight * 1.5;
+      const endOffset = -elementHeight * 2;
+      const totalDistance = startOffset - endOffset;
 
       if (elementTop <= startOffset && elementTop >= endOffset) {
-        const progress = (startOffset - elementTop) / totalDistance
-        setScrollProgress(Math.min(Math.max(progress, 0), 1))
+        const progress = (startOffset - elementTop) / totalDistance;
+        setScrollProgress(Math.min(Math.max(progress, 0), 1));
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial call
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial call
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const text = "Ready to Rise"
-
-  const translateX = (1 - scrollProgress) * (window.innerWidth + 600) - 800
-  const opacity = Math.min(scrollProgress * 2, 1) // Fade in faster but stay visible longer
+  const text = "Ready to Rise";
+  const translateX = windowWidth
+    ? (1 - scrollProgress) * (windowWidth + 600) - 600
+    : 0;
+  const opacity = Math.min(scrollProgress * 2, 1);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[40vh]  overflow-hidden flex items-center justify-center px-4"
+      className="relative min-h-[40vh] overflow-hidden flex items-center justify-center px-4"
     >
       <div className="relative w-full max-w-full">
         <div
@@ -47,11 +62,11 @@ export default function ScrollingText() {
           style={{
             transform: `translateX(${translateX}px)`,
             opacity: opacity,
-            transition: "none", 
+            transition: "none",
           }}
         >
           <h1
-            className="text-8xl md:text-9xl lg:text-[12rem] font-bold text-black leading-none tracking-tight"
+            className="text-8xl md:text-9xl lg:text-[12rem] font-medium  leading-none tracking-tight"
             style={{
               fontFamily: "system-ui, -apple-system, sans-serif",
             }}
@@ -59,9 +74,7 @@ export default function ScrollingText() {
             {text}
           </h1>
         </div>
-
-       
       </div>
     </section>
-  )
+  );
 }

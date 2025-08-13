@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4">
+    <section className="relative min-h-[calc(100vh-80px)] w-full overflow-hidden px-4 py-4 bg-[#efeeec]">
       {/* Image Wrapper with rounded corners */}
       <div className="relative w-full h-full rounded-4xl overflow-hidden">
         {/* Background Image */}

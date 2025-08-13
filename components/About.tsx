@@ -10,7 +10,7 @@ export default function AboutMe() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-48 ">
             {/* Left side - Description */}
             <div className="space-y-4">
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-800 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl lg:text-2xl  leading-relaxed font-medium">
                 A passionate full-stack developer crafting digital experiences through innovative web solutions, modern
                 design patterns & seamless user interactions for both businesses and individuals
               </p>
@@ -19,7 +19,7 @@ export default function AboutMe() {
             {/* Right side - Heading and Navigation */}
             <div className="space-y-8">
               <div className="relative">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold  leading-tight">
                   Building Digital{" "}
                   <span className="inline-flex items-center">
                     Experiences
@@ -48,7 +48,7 @@ export default function AboutMe() {
 
                 <Link
                   href="/services"
-                  className="group flex items-center text-lg font-medium text-gray-800 hover:text-gray-600 transition-colors"
+                  className="group flex items-center text-lg font-medium  hover:text-gray-600 transition-colors"
                 >
                   My Services
                   <ArrowUpRight className="ml-2" />
