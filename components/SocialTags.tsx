@@ -1,17 +1,21 @@
-"use client"
+"use client";
 
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react"
-import Link from "next/link"
-import type React from "react"
+import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import Link from "next/link";
+import type React from "react";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
+import { buttonVariants } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+import { Dock, DockIcon } from "@/components/magicui/dock";
 
-import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler"
-import { buttonVariants } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { cn } from "@/lib/utils"
-import { Dock, DockIcon } from "@/components/magicui/dock"
-
-export type IconProps = React.HTMLAttributes<SVGElement>
+export type IconProps = React.HTMLAttributes<SVGElement>;
 
 const Icons = {
   calendar: (props: IconProps) => <CalendarIcon {...props} />,
@@ -55,7 +59,7 @@ const Icons = {
       ></path>
     </svg>
   ),
-}
+};
 
 const DATA = {
   navbar: [
@@ -66,31 +70,31 @@ const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/sachu1105",
         icon: Icons.github,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "#",
+        url: "https://www.linkedin.com/in/sachu-s-kumar",
         icon: Icons.linkedin,
       },
       X: {
         name: "X",
-        url: "#",
+        url: "https://x.com/SachuSajith6",
         icon: Icons.x,
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:sachusajith170@gmail.com",
         icon: Icons.email,
       },
     },
   },
-}
+};
 
 export function DockDemo() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center ">
       <TooltipProvider>
         <Dock direction="middle">
           {DATA.navbar.map((item) => (
@@ -100,7 +104,10 @@ export function DockDemo() {
                   <Link
                     href={item.href}
                     aria-label={item.label}
-                    className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full"
+                    )}
                   >
                     <item.icon className="size-4" />
                   </Link>
@@ -118,8 +125,13 @@ export function DockDemo() {
                 <TooltipTrigger asChild>
                   <Link
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.name}
-                    className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 rounded-full")}
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full"
+                    )}
                   >
                     <social.icon className="size-4" />
                   </Link>
@@ -134,7 +146,7 @@ export function DockDemo() {
           <DockIcon>
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="size-12 rounded-full flex items-center justify-center">
+                <div className="size-12 rounded-full flex items-center justify-center ">
                   <AnimatedThemeToggler />
                 </div>
               </TooltipTrigger>
@@ -146,5 +158,5 @@ export function DockDemo() {
         </Dock>
       </TooltipProvider>
     </div>
-  )
+  );
 }

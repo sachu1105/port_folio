@@ -35,16 +35,16 @@ export default function Footer() {
 
             {/* Navigation Links */}
             <div className="flex flex-col sm:flex-row sm:items-start gap-8 text-lg font-medium">
-              <Link href="/services" className="hover:underline">
+              <Link href="/" className="hover:underline">
                 Home
               </Link>
-              <Link href="/work" className="hover:underline">
+              <Link href="/about" className="hover:underline">
                 My Story
               </Link>
               <Link href="/testimonials" className="hover:underline">
                 Skills
               </Link>
-              <Link href="/blog" className="hover:underline">
+              <Link href="/projects" className="hover:underline">
                 Projects
               </Link>
             </div>
